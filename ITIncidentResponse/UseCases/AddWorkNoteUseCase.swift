@@ -1,7 +1,7 @@
 import Foundation
 
 /// Error when a technician tries to add an investigation note.
-enum AddWorkNoteError: LocalizedError {
+enum AddWorkNoteError: LocalizedError, Equatable {
     case incidentNotFound
     case incidentNotActive
     case emptyWorkNote
