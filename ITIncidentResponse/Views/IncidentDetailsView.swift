@@ -2,6 +2,7 @@ import SwiftUI
 
 struct IncidentDetailsView: View {
     @State var viewModel: IncidentDetailsViewModel
+    @Environment(IncidentRepository.self) private var repository
 
     var body: some View {
         Group {
@@ -33,7 +34,12 @@ struct IncidentDetailsView: View {
 
                         if incident.status == .inProgress {
                             NavigationLink("Work on this incident") {
-                                ActiveIncidentView(incidentID: incident.id)
+                                ActiveIncidentView(
+                                    viewModel: ActiveIncidentViewModel(
+                                        incidentID: incident.id,
+                                        repository: repository
+                                    )
+                                )
                             }
                         }
                     }
