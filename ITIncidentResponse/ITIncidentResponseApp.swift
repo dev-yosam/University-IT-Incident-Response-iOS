@@ -2,16 +2,18 @@
 //  ITIncidentResponseApp.swift
 //  ITIncidentResponse
 //
-//  Created by yosam on 8/9/2026.
 //
 
 import SwiftUI
 
 @main
 struct ITIncidentResponseApp: App {
+    @State private var repository = IncidentRepository()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            IncidentQueueView(viewModel: IncidentQueueViewModel(repository: repository))
+                .environment(repository)
         }
     }
 }
