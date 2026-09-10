@@ -54,6 +54,19 @@ struct ActiveIncidentView: View {
                     } footer: {
                         Text("Sample internal steps for this demo. Not official university procedures.")
                     }
+
+                    if incident.status == .inProgress {
+                        Section {
+                            NavigationLink("Resolve / Escalate") {
+                                ResolveEscalateView(
+                                    viewModel: ResolveEscalateViewModel(
+                                        incidentID: incident.id,
+                                        repository: repository
+                                    )
+                                )
+                            }
+                        }
+                    }
                 }
                 .navigationTitle("Active Incident")
                 .navigationBarTitleDisplayMode(.inline)
