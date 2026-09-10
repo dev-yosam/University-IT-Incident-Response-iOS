@@ -1,7 +1,7 @@
 import Foundation
 
 /// Error when a technician tries to hand an incident to a specialist team.
-enum EscalateIncidentError: LocalizedError {
+enum EscalateIncidentError: LocalizedError, Equatable {
     case incidentNotFound
     case incidentNotActive
     case missingEscalationReason

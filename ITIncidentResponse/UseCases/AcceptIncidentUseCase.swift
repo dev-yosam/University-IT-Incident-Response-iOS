@@ -1,7 +1,7 @@
 import Foundation
 
 /// Error when a technician tries to accept an incident from the queue.
-enum AcceptIncidentError: LocalizedError {
+enum AcceptIncidentError: LocalizedError, Equatable {
     case incidentNotFound
     case incidentAlreadyAssigned
     case incidentNotAvailable

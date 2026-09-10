@@ -1,7 +1,7 @@
 import Foundation
 
 /// Error when a technician tries to close an incident.
-enum ResolveIncidentError: LocalizedError {
+enum ResolveIncidentError: LocalizedError, Equatable {
     case incidentNotFound
     case incidentNotActive
     case missingResolutionSummary
