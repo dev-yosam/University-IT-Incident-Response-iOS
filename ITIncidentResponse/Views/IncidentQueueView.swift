@@ -6,7 +6,7 @@ struct IncidentQueueView: View {
 
     var body: some View {
         NavigationStack {
-            List(viewModel.incidents) { incident in
+            List(repository.incidents) { incident in
                 NavigationLink(value: incident.id) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(incident.priority.displayName)
@@ -20,6 +20,7 @@ struct IncidentQueueView: View {
                         Text(incident.status.displayName)
                             .font(.footnote)
                     }
+                    .accessibilityElement(children: .combine)
                     .padding(.vertical, 4)
                 }
             }
